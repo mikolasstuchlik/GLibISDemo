@@ -1,5 +1,7 @@
 # GLibISDemo
 
+Works only on macOS at this time.
+
 Usage:
 
 ```
