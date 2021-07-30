@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "IndexStoreDB",
+        "repositoryURL": "https://github.com/apple/indexstore-db.git",
+        "state": {
+          "branch": "main",
+          "revision": "03e62dc93904cdc90e409ce0a489c8f25727afc8",
+          "version": null
+        }
+      },
+      {
+        "package": "GLib",
+        "repositoryURL": "https://github.com/mikolasstuchlik/SwiftGLib.git",
+        "state": {
+          "branch": "demo-isdb",
+          "revision": "a6c72aa3754f7eed5b44f0ddb8be15e57d58a583",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
