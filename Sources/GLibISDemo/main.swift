@@ -44,15 +44,26 @@ let db = try IndexStoreDB(
 )
 
 // MARK: - Examples
-print(db.canonicalOccurrences(ofName: "Int"))
-print(db.canonicalOccurrences(ofName: "CLongDouble"))
+let names = db.allSymbolNames()
+let symbols = names.flatMap(db.canonicalOccurrences(ofName:))
 
-db.forEachSymbolName { name in
-    if name.contains("g_object") { print(name) }
-    return true
+var kinds = [IndexSymbolKind: [SymbolOccurrence]]()
+
+extension Dictionary {
+    mutating func map(key: Key, map: (Value?)->Value?) {
+        self[key] = map(self[key])
+    }
 }
 
-db.forEachSymbolName { name in
-    if name.contains("GObject") { print(name) }
-    return true
+for occurance in symbols {
+    kinds.map(key: occurance.symbol.kind) { value in
+        (value ?? []) + [occurance]
+    }
+}
+
+for (key, value) in kinds {
+    print("\(key):")
+    for occurance in value.filter({ $0.location.path.contains("glib") }) {
+        print("\t\(occurance)")
+    }
 }
