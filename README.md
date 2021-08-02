@@ -2,6 +2,8 @@
 
 Works only on macOS at this time.
 
+Demo created for the purposes of https://github.com/rhx/gir2swift/issues/21
+
 Usage:
 
 ```
